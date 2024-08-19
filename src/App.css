@@ -1,38 +1,109 @@
 .App {
+  background-color: black;
+
+  padding: 40px;
+}
+
+.inputComponent {
+  width: 700px;
+  height: 100px;
+  border: 2px orange solid;
+
+  display: flex;
+  justify-content: center;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.input {
+  height: 50px;
+  margin: 25px;
+  width: 400px;
+}
+.buttonCreateToDo {
+  height: 50px;
+  margin: 25px;
+  color: black;
+  background-color: orange;
+  border: 0px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.toDosComponent {
+  width: 700px;
+
+  border: 2px orange solid;
+  color: orange;
+
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ToDosText {
+  font-weight: 700;
+  font-size: 20px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sortBtn {
+  height: 50px;
+  margin: 25px;
+  color: black;
+  background-color: orange;
+  border: 0px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.toDosSearch {
+  height: 50px;
+  margin: 25px;
+  width: 400px;
+}
+.toDo {
+  color: orange;
+  height: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.changeToDoBtn {
+  background-color: orange;
+  background-color: orange;
+  width: 100px;
+  height: 30px;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.deleteToDoBtn {
+  background-color: orange;
+  background-color: orange;
+  width: 100px;
+  height: 30px;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.backBtn {
+  background-color: red;
+  width: 100px;
+  height: 30px;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.toDoTitle {
+  font-weight: 700;
 }
-
-.App-link {
-  color: #61dafb;
+.currentToDo {
+  height: 100px;
+  margin: 50px 25px 25px 25px;
+  border: 1px dotted red;
+  padding: 25px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error404 {
+  color: red;
+  font-size: 25px;
 }
