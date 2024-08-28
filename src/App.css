@@ -96,6 +96,7 @@
 
 .toDoTitle {
   font-weight: 700;
+  color: orange;
 }
 .currentToDo {
   height: 100px;

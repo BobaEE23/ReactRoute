@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const NotFound = () => (
+export const NotFound = () => (
   <div className="error404">
     <h1>404 - Страница не найдена</h1>
     <p>Такой страницы не существует.</p>
   </div>
 );
-const Todo = ({ changeToDo, deletToDo }) => {
+export const Todo = ({ deletToDo, changeToDo }) => {
   const params = useParams();
   const [title, setTitle] = useState("");
 
@@ -16,33 +16,34 @@ const Todo = ({ changeToDo, deletToDo }) => {
       .then((data) => data.json())
       .then((toDo) => {
         setTitle(toDo.title);
+        console.log(toDo.title);
       });
   }, [params]);
-  console.log(title);
+
   if (title === undefined) {
     return <NotFound />;
   }
   return (
     <div className="currentToDo">
       <p className="toDoTitle">{title}</p>
-      <Link to="/todo">
+      <Link to="/">
         <button onClick={() => changeToDo(params.id)} className="changeToDoBtn">
           Изменить
         </button>
       </Link>
-      <Link to="/todo">
+      <Link to="/">
         <button onClick={() => deletToDo(params.id)} className="deleteToDoBtn">
           Удалить
         </button>
       </Link>
-      <Link to="/todo">
+      <Link to="/">
         <button className="backBtn">назад</button>
       </Link>
     </div>
   );
 };
 
-export const TodosList = ({ filteredToDos, deletToDo, changeToDo }) => {
+export const TodosList = ({ filteredToDos }) => {
   return (
     <div>
       {filteredToDos.map(({ id, title }) => (
@@ -54,16 +55,6 @@ export const TodosList = ({ filteredToDos, deletToDo, changeToDo }) => {
           </div>
         </Link>
       ))}
-
-      <Routes>
-        <Route
-          path="todo/:id"
-          element={<Todo deletToDo={deletToDo} changeToDo={changeToDo} />}
-        />
-        <Route path="/todo" />
-        <Route path="/" />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
     </div>
   );
 };
