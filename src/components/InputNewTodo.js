@@ -1,7 +1,7 @@
 import "../App.css";
 import { useState } from "react";
 
-export const Input = ({ setToDos }) => {
+export const InputNewTodo = ({ setToDos }) => {
   const [inputToDo, setInputToDo] = useState("");
 
   const createToDo = (event) => {

@@ -2,11 +2,13 @@ import "../App.css";
 import { useState, useEffect } from "react";
 
 import { TodosList } from "./TodosList";
-import { Input } from "./Input";
+import { InputNewTodo } from "./InputNewTodo";
 
-export const ToDos = ({ refreshToDos, toDos, setToDos }) => {
+export const ToDos = () => {
   const [sortedToDos, setSortedToDos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [refreshToDos, setRefreshToDos] = useState(false);
+  const [toDos, setToDos] = useState([]);
 
   const [isSort, setIsSort] = useState(false);
 
@@ -30,21 +32,15 @@ export const ToDos = ({ refreshToDos, toDos, setToDos }) => {
     toDo.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <>
-      <Input setToDos={setToDos} />
-      <div className="toDosComponent">
-        <p className="ToDosText">Список Задач</p>
-        <button onClick={sortToDoS} className="sortBtn">
-          Сортировать
-        </button>
-        <input
-          className="toDosSearch"
-          placeholder="Поиск задачи..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <TodosList filteredToDos={filteredToDos} />
-      </div>
-    </>
+    <div>
+      <InputNewTodo setToDos={setToDos} />
+
+      <TodosList
+        filteredToDos={filteredToDos}
+        sortToDoS={sortToDoS}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
+    </div>
   );
 };
